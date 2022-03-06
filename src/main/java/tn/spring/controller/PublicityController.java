@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RestController;
 import tn.spring.Api.APIResponse;
 
 import tn.spring.entities.Publicity;
+import tn.spring.repository.PublicityRepository;
 import tn.spring.service.IPublicityService;
 
 @RestController
@@ -23,6 +24,8 @@ public class PublicityController {
 
 	@Autowired
 	IPublicityService publicityService;
+	@Autowired
+	PublicityRepository pubRepository;
 	@PostMapping("/add-pub")
 	@ResponseBody
 	public void addPublicity(@RequestBody Publicity pub)
@@ -53,5 +56,16 @@ public class PublicityController {
 	       Page<Publicity> publicitysWithPagination = publicityService.findComplaintsWithPagination(offset, pageSize);
 	       return new APIResponse<>(publicitysWithPagination.getSize(), publicitysWithPagination);
 	   }
+	
+	
+	
+	@GetMapping("/nbre-max-pub")
+	@ResponseBody
+	public  Integer NbreMax()
+	{
+		Integer p= pubRepository.NbreMax();
+		return p;
+		
+	}
 
 	}
