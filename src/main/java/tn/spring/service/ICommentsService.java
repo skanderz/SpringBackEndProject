@@ -12,6 +12,7 @@ public interface ICommentsService {
 	public Comments modifierComments(Comments comment);
 	public void deleteComments(Integer IdCom);
 	public List<Comments> retreveAllCommnts();
+	//public void	ajouterEtaffecterListeComment(Comments comment, Integer IdPub);
 
 
 

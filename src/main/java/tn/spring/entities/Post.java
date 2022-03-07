@@ -38,8 +38,8 @@ public class Post {
 	@ManyToOne
 	 Comments comments;
 	
-	@OneToMany(cascade = CascadeType.ALL, mappedBy="posts")
-	private Set<User>  users;
+	//@OneToMany(cascade = CascadeType.ALL, mappedBy="posts")
+	//private Set<User>  users;
 	
 	
 	@ManyToOne

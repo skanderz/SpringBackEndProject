@@ -49,7 +49,7 @@ public  class User  {
    private Subscription subscription;
 	@OneToOne
    private Candidat candidat ;
-	@ManyToOne
-	 Post posts;
+	//@ManyToOne
+	// Post posts;
 
 }

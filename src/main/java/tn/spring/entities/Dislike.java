@@ -28,7 +28,7 @@ public class Dislike implements Serializable {
 	private static final long serialVersionUID = 1L;
 	@Id
 	@GeneratedValue (strategy = GenerationType.IDENTITY)
-	@Column(name="idd")
+	@Column(name="id")
 
     Long id;
 	int etatdislike;
