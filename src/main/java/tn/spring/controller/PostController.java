@@ -31,7 +31,10 @@ public class PostController {
 	@ResponseBody
 	public void addPost(@RequestBody Post post )
 	{
+		if(post.getNbrVues()!=0){
 	postService.ajouterPost(post);
+		}
+		
 	}
 	
 	
