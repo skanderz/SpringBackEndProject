@@ -1,5 +1,4 @@
-package tn.spring.entities;
-
+package tn.spring.Entities;
 import java.util.*;
 
 import javax.persistence.CascadeType;
@@ -31,6 +30,5 @@ public class Subject {
     private Date dateSubject;
     private float evaluate;
     @OneToMany(cascade = CascadeType.ALL, mappedBy="subject")
-    private Set<Commenting> commentings;
+    private Set<Complaint> complaintss;
 }
-

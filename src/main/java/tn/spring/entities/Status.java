@@ -1,7 +1,8 @@
-package tn.spring.entities;
+package tn.spring.Entities;
 
 public enum Status {
-	Active,
-	NonActive;
+	TREATED,
+	NOTTREATED,
+	BEINGTREATED
 
 }

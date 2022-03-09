@@ -1,4 +1,4 @@
-package tn.spring.entities;
+package tn.spring.Entities;
 
 import java.util.Date;
 
@@ -14,7 +14,6 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import tn.spring.entities.User;
 
 @Entity
 @Getter
@@ -24,13 +23,13 @@ import tn.spring.entities.User;
 public class Complaint {
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	private Integer IdComp;
+	private Long IdComp;
 	private String Description;
-	private String Image;
 	private Date DateR;
 	@Enumerated(EnumType.STRING)
-	private Statuus status;
+	private Status status;
 	@ManyToOne
 	User user;
-
+	@ManyToOne
+    Subject subject;
 }

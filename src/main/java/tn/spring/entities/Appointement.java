@@ -1,4 +1,4 @@
-package tn.spring.entities;
+package tn.spring.Entities;
 
 
 import java.util.Date;
@@ -13,7 +13,6 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import tn.spring.entities.User;
 
 @Entity
 @Getter
@@ -23,9 +22,10 @@ import tn.spring.entities.User;
 public class Appointement {
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	private Integer IdApp;
+	private Long IdApp;
 	private Date DateApp;
 	private Date Hour;
+	private String Local;
 	@ManyToOne
 	User user;
 
