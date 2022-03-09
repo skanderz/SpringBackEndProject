@@ -1,7 +1,6 @@
 package tn.spring.entities;
 
-
-import java.util.Set;
+import java.util.*;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
@@ -14,20 +13,24 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+
+
 @Entity
 @Getter
 @Setter
-@NoArgsConstructor
 @AllArgsConstructor
-public class User {
-	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	private Long userId;
-	private String firstName;
-	private String lastName;
+@NoArgsConstructor
+public class Subject {
 	
-	@OneToMany(cascade = CascadeType.ALL, mappedBy="user")
-	private Set<FeedBackUser> Feedbacks;
-
-
+	@Id
+    @GeneratedValue (strategy = GenerationType.IDENTITY)
+    private Long id;
+    private String category;
+    private String subjectName;
+    private String description;
+    private Date dateSubject;
+    private float evaluate;
+    @OneToMany(cascade = CascadeType.ALL, mappedBy="subject")
+    private Set<Commenting> commentings;
 }
+

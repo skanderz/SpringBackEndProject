@@ -9,6 +9,9 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -25,12 +28,17 @@ public class Question {
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Integer Id;
 	private String Title;
+	private Integer Mark;
 	
 	@OneToMany(cascade = CascadeType.ALL, mappedBy="questions")
 	private Set<Qcm> qcms;
 	
 	@ManyToOne
-	Response responses;
+	Answer responses;
+	@ManyToOne
+	@JsonIgnore
+	private Qcm quiz;
 	
+
 
 }
