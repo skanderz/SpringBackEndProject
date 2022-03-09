@@ -8,4 +8,5 @@ import tn.spring.entities.Certificat;
 @Repository
 public interface CertificatRep  extends CrudRepository<Certificat, Integer> {
 
+
 }
