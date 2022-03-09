@@ -1,35 +1,35 @@
-package tn.spring.entities;
+package tn.esprit.spring.entity;
+
 
 import java.util.Date;
-
-import javax.persistence.Entity;
-import javax.persistence.EnumType;
-import javax.persistence.Enumerated;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.OneToOne;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
+import java.util.stream.Collectors;
+import javax.persistence.*;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import tn.esprit.spring.entity.Subscription;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+
 @Entity
 @Getter
 @Setter
-@AllArgsConstructor
 @NoArgsConstructor
-public class Subscription {
-	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	private Integer IdSub;
-	private Date Date_D;
-	private Date Date_F;
-	@Enumerated(EnumType.STRING)
-	private Typee type;
-	@OneToOne(mappedBy="subscription")
- private User user;
-	
+@AllArgsConstructor
 
+
+public class Subscription {
+	@Id     @GeneratedValue(strategy = GenerationType.IDENTITY)	private Long idSub;
+	@Temporal(TemporalType.DATE)	private Date dateDebut;
+	@JsonIgnore @Temporal(TemporalType.DATE)    private Date dateFin;
+    @Enumerated(EnumType.STRING)    private ESubscription  typeSub;
+    
+    
+    @JsonIgnore @OneToOne(mappedBy="Subscription") 	private User Userrr;  
+  
 }
