@@ -1,4 +1,4 @@
-package tn.spring.Services;
+package tn.spring.services;
 
 import java.util.Comparator;
 import java.util.List;
@@ -9,8 +9,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
 
-import tn.spring.Repository.SubjectRepository;
-import tn.spring.Entities.Subject;
+import tn.spring.repositories.SubjectRepository;
+import tn.spring.entities.Subject;
 
 @Service
 public class SubjectService   {
@@ -43,7 +43,7 @@ public class SubjectService   {
 	@Scheduled(cron = "0 0 0 * * 6", zone = "Europe/Paris")
 	public void DeleteSujetSansInteraction() {
 		subjectRepository.findAll().stream().forEach(x->{
-			if(x.getComplaintss().size()<3) {
+			if(x.getCommentings().size()<3) {
 				System.out.println("Sujet sans interaction  "+x.toString());
 				subjectRepository.delete(x);
 			}
@@ -51,11 +51,7 @@ public class SubjectService   {
 		
 	}
 	
-	public List<Subject> AffichageSujetAlaLaUne(){
-	    Comparator<Subject> compByLength = (x, y) -> x.getComplaintss().size() - y.getComplaintss().size();
-
-		return subjectRepository.findAll().stream().sorted(compByLength).collect(Collectors.toList());
-	}
+	
 	
 	public void Rating (Subject s, int nbEtoiles) {
 		s.setEvaluate((s.getEvaluate()+nbEtoiles)/2);
