@@ -23,8 +23,8 @@ import tn.spring.services.QuizService;
 public class QuizController {
 	@Autowired
 	QuizService qcmService;
-	
-	
+	//récuperer auto un bean de spring
+	//traiter les reponses si on a pas besoin de exploiter le code sous forme http
 	@PostMapping("/add-quiz")
 	@ResponseBody
 	Qcm addQcm(@RequestBody Qcm q){

@@ -20,7 +20,7 @@ import tn.spring.services.CourseService;
 
 @RestController
 public class CourseController {
-
+//récuperer auto un bean de spring
 	@Autowired
 	CourseService courseService;
 	
@@ -30,6 +30,7 @@ public class CourseController {
 		course.setDescription( BadWordFilter.getCensoredText(course.getDescription() ));
 		courseService.addCourse(course);
 	}
+	//traiter les reponses si on a pas besoin de exploiter le code sous forme http
 	@GetMapping("/retrieve-allCourse")
 	@ResponseBody
 	List<Course> retrieveAllCourses(){

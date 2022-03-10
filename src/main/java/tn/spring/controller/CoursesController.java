@@ -24,7 +24,8 @@ import tn.spring.services.CoursesService;
 
 
 @RestController
-@CrossOrigin
+@CrossOrigin 
+//lorsque le client et serveur sont deployés dans deux serveurs
 public class CoursesController {
 	
 	
