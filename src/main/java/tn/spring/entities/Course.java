@@ -57,7 +57,8 @@ public class Course {
 	private Set<Former> formers;
 	
 	
-	
+	@OneToMany(cascade = CascadeType.ALL, mappedBy="coursess")
+	private Set<Delivery> deliveriesss;
 	
 	
 	
