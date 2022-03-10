@@ -89,6 +89,7 @@ public class CourseServiceImpl implements CourseService{
 		ff.getFormers();
 		nb=nb+1;
 		f.setNbrCourse(nb);
+		System.out.println(nb);
 		
 		
 		

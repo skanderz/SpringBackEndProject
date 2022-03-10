@@ -19,7 +19,7 @@ public class SubjectService   {
 	
 	public String addSubject(Subject s) {
 		if(this.sujetRedondant(s)) {
-			return "Error!!! redundant subject!";
+			return "Error!!! this lesson exits already!";
 		}else {
 			subjectRepository.save(s);
 			return "Subject added successfully";
@@ -40,16 +40,7 @@ public class SubjectService   {
 		return b;
 	}
 	
-	@Scheduled(cron = "0 0 0 * * 6", zone = "Europe/Paris")
-	public void DeleteSujetSansInteraction() {
-		subjectRepository.findAll().stream().forEach(x->{
-			if(x.getCommentings().size()<3) {
-				System.out.println("Sujet sans interaction  "+x.toString());
-				subjectRepository.delete(x);
-			}
-		});
-		
-	}
+	
 	
 	
 	
